@@ -16,7 +16,6 @@ use alloc::vec::Vec;
 use core::fmt::Debug;
 
 use anyhow::Result;
-use borsh::{BorshDeserialize, BorshSerialize};
 use risc0_binfmt::{tagged_struct, Digestible};
 use risc0_circuit_recursion::control_id::{ALLOWED_CONTROL_ROOT, BN254_IDENTITY_CONTROL_ID};
 use risc0_groth16::{fr_from_hex_string, split_digest, Seal, Verifier, VerifyingKey};
@@ -32,7 +31,7 @@ use crate::{
 };
 
 /// A receipt composed of a Groth16 over the BN_254 curve
-#[derive(Clone, Debug, Deserialize, Serialize, BorshSerialize, BorshDeserialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[cfg_attr(test, derive(PartialEq))]
 #[non_exhaustive]
 pub struct Groth16Receipt<Claim>

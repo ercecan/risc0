@@ -17,7 +17,6 @@ extern crate alloc;
 use alloc::{collections::VecDeque, vec::Vec};
 use core::fmt;
 
-use borsh::{BorshDeserialize, BorshSerialize};
 use risc0_zkp::core::{digest::Digest, hash::sha::Sha256};
 use serde::{Deserialize, Serialize};
 
@@ -25,7 +24,7 @@ use crate::{tagged_struct, Digestible};
 
 /// Represents the public state of a segment, needed for continuations and
 /// receipt verification.
-#[derive(Clone, Serialize, Deserialize, PartialEq, BorshDeserialize, BorshSerialize)]
+#[derive(Clone, Serialize, Deserialize, PartialEq)]
 pub struct SystemState {
     /// The program counter.
     pub pc: u32,
